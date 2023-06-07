@@ -1,3 +1,5 @@
+import 'reflect-metadata'
+
 interface LogProps {
   message: string
 }
