@@ -1,12 +1,8 @@
 import 'reflect-metadata'
+import { setupApolloServer } from './main/graphql/apollo/setup'
 
-interface LogProps {
-  message: string
+async function main() {
+  await setupApolloServer()
 }
 
-function log({ message }: LogProps): string {
-  console.log(message)
-  return message
-}
-
-log({ message: 'Hello' })
+main()
