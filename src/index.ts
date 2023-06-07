@@ -1,6 +1,10 @@
-function log() {
-  console.log('Hello')
-  return 'Hello'
+interface LogProps {
+  message: string
 }
 
-log()
+function log({ message }: LogProps): string {
+  console.log(message)
+  return message
+}
+
+log({ message: 'Hello' })
