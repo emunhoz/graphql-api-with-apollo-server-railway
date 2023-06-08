@@ -2,11 +2,11 @@
   "name": "graphql-api-with-apollo-server-railway",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "dev": "tsx src/index.ts",
     "dev:watch": "tsx watch src/index.ts",
-    "build": "tsup src"
+    "build": "tsup src",
+    "start": "npm run build && node dist/index.js"
   },
   "keywords": [],
   "author": "",
