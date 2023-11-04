@@ -2,6 +2,9 @@
   "name": "graphql-api-with-apollo-server-railway",
   "version": "0.0.1",
   "description": "",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "tsx src/index.ts",
     "dev:watch": "tsx watch src/index.ts",
