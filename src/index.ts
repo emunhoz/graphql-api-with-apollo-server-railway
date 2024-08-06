@@ -1,8 +1,14 @@
 import 'reflect-metadata'
-import { setupApolloServer } from './main/graphql/apollo/setup'
+import { configureApolloServer, startApolloServer } from './main/graphql/apollo/setup'
 
-async function main() {
-  await setupApolloServer()
+async function startServer() {
+  try {
+    const server = await configureApolloServer()
+    await startApolloServer(server)
+  } catch (error) {
+    console.error('Error starting the server:', error)
+    process.exit(1)
+  }
 }
 
-main()
+startServer()

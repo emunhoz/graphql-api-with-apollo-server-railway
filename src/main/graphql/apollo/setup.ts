@@ -3,16 +3,28 @@ import { buildSchema } from 'type-graphql'
 import { startStandaloneServer } from '@apollo/server/standalone'
 import { HelloWorldResolver } from '../resolvers/hello-world'
 
-export async function setupApolloServer() {
-  const schema = await buildSchema({
-    resolvers: [HelloWorldResolver],
-  })
+export async function configureApolloServer() {
+  try {
+    const schema = await buildSchema({
+      resolvers: [HelloWorldResolver],
+    })
 
-  const server = new ApolloServer({ schema })
+    return new ApolloServer({ schema })
+  } catch (error) {
+    console.error('Error configuring Apollo Server:', error)
+    throw error
+  }
+}
 
-  const { url } = await startStandaloneServer(server, {
-    listen: { port: Number(process.env.PORT) || 4000 },
-  })
+export async function startApolloServer(server: ApolloServer) {
+  try {
+    const { url } = await startStandaloneServer(server, {
+      listen: { port: Number(process.env.PORT) || 4000 },
+    })
 
-  console.log(`🚀 Server ready at ${url}`)
+    console.log(`🚀 Server ready at ${url}`)
+  } catch (error) {
+    console.error('Error starting Apollo Server:', error)
+    throw error
+  }
 }
