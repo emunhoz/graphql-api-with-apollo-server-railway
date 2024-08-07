@@ -62,6 +62,45 @@ bun run dev
 
 The server will be available at http://localhost:4000.
 
+### Docker Setup
+
+The project includes a Docker setup with a Dockerfile and docker-compose.yml to handle both development and production environments.
+
+### Running the Project with Docker
+
+This project can be easily run using Docker, which helps in setting up a consistent development environment. Follow the steps below to build and run the project using Docker.
+
+### Prerequisites
+
+- Docker
+- docker-compose
+
+### Steps to Build and Run the Project
+
+Navigate to the directory containing the Dockerfile and docker-compose.yml and build the Docker images:
+
+1. Build the Docker Images:
+
+```bash
+docker-compose build
+```
+
+2. Run in Development Mode:
+
+```bash
+docker-compose up app
+```
+
+This will start the development server with hot-reload enabled, allowing you to see changes in real-time. The server will be available at http://localhost:4000.
+
+3. Run in Production Mode:
+
+```bash
+docker-compose up app-prod
+```
+
+This will start the server in production mode. The server will be available at http://localhost:4000.
+
 ### Example Query
 
 With the server running, you can make a GraphQL query. The following query uses the HelloWorldResolver:
